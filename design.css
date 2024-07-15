@@ -24,14 +24,15 @@ body {
 }
 
 
-.meilleur_film{   
+.best_movie{   
+    padding: 5px;
     display: flex;
-    flex-direction: row;
-    border:rgb(0, 0, 0) solid 5px  
-   
+    flex-direction: column;
+    justify-content: flex-end;
+    border:rgb(0, 0, 0) solid 5px;
  }
 
- .section_meilleur_film{
+ .best_movie_section{
     margin-right: 500px;
 }
 
