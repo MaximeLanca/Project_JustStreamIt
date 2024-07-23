@@ -25,15 +25,47 @@ body {
 
 
 .best_movie{   
-    padding: 5px;
+    padding: 15px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-flow: row wrap;
+    gap: 20px;
     border:rgb(0, 0, 0) solid 5px;
+    word-wrap: break-word;
  }
 
- .best_movie_section{
-    margin-right: 500px;
+.best_movie_section{
+    margin-right: 400px;
+}
+
+.best_movie_detail_button{
+    position : relative;
+    top: -80px;
+    left: 850px;
+}
+.six_best_movies_detail_button{
+    position : relative;
+    top: -270px;
+    left: 90px;
+}
+
+.six_best_movies{
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.action_movies_detail_button{
+    position : relative;
+    top: -270px;
+    left: 90px;
+}
+
+.action_movies{
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
 }
 
 .button_detail {
@@ -63,10 +95,20 @@ body {
     box-sizing: border-box;
   }
 
-.btn {
-    background-color: #f1356d;
+.red_btn {
+    background-color: #f13535;
     color: white;
-    padding: 8px 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.black_btn {
+    background-color: #000000;
+    color: white;
+    padding: 10px 15px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -98,6 +140,7 @@ body {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     }
+
 .dropdown-content_fix {
     font-family: Oswald;
     background-color: white;
@@ -105,7 +148,7 @@ body {
 
 }
 
-.dropdown-content a {
+.dropdown-content {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -114,5 +157,45 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    border:rgb(0, 0, 0) solid 10px;
+}
+
+.modal {
+    display: none; 
+    position: relative;
+    left: -500px;
+    top: 0px;
+    width: 600px; 
+    height: 1000px;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid rgb(0, 0, 0) solid 5px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888 solid 5px;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    padding: 7px 100px;
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    border-radius: 15px;
+    top: 50px;
+    left: 50%;
+}
+
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
   

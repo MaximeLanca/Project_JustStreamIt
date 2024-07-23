@@ -14,12 +14,12 @@ async function loadMoviesByCategory(category) {
 
 function injectMoviesIntoPage(movies) {
     const container = document.getElementById('Six_best_movies');
-    container.innerHTML = ' ';
+    /*  container.innerHTML = ' '; */
 
     movies.forEach(movie => {
         const movieElement = document.createElement('div');
         movieElement.className = 'movie';
-        movieElement.innerHTML = `<img src=${movie.image_url} alt=${movie.title}><h3>${movie.title}</h3><button onclick=showDetails(${movie.id})>Détails</button>`;
+        movieElement.innerHTML = `<img src=${movie.image_url} alt=${movie.title}><h3>${movie.title}</h3>`;
         container.appendChild(movieElement);
     });
 }

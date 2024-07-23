@@ -3,199 +3,89 @@
 
 <head>
     <meta charset="utf-8">
-    <title><em>Vidéo à la demande</em></title>
+    <title>Vidéo à la demande</title>
     <link href="design.css" rel="stylesheet" class="border_page">
-    <script src="dropDownActionMovies.js" defer></script>
     <script src="displayBestMovie.js" defer></script>
+    <script src="displaySixBestMovies.js" defer></script>
+    <script src="displayActionMovies.js" defer></script>
+    <script src="displayAdventureMovies.js" defer></script>
+    <!-- <script src="displaySfiCiMovies.js" defer></script>
+    <script src="modalWindows.js" defer></script> -->
+    <!-- <script src="dropDownActionMovies.js" defer></script> -->
 </head>
-Ò
 
 <body>
+
     <header>
         <h1 class="center_h1">Vidéos à la demande</h1>
         <img src="#" class="juststreamit_logo" alt="logo" />
     </header>
+
     <section class="best_movie_section">
         <h2>Meilleur film</h2>
-        <article class="best_movie">
-            <div id="best_movie">
-                <a href="#" class="btn">Détails</a>
+        <article id="best_movie" class="best_movie"></article>
+        <div class="best_movie_detail_button">
+            <button class="red_btn openModalBtn">Détails</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <button class="close">Fermé</button>
+                    <p>This is a modal window!</p>
+                </div>
             </div>
-        </article>
+        </div>
     </section>
 
-    <section class="film">
-        <article>
-            <h2>Films les mieux notés</h2>
-            <div>
-                <a>
-                    <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/furiosa.jpg"
-                        alt="furiosa" width="259" heigth="252" title='Furiosa' />
-                    <button class="button_detail">
-                        Détails
-                    </button>
-                    <div class="overlay"></div>
-                </a>
-                <a>
-                    <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/sans_un_bruit.jpg"
-                        alt="sans_un_bruit" width="259" heigth="252" title='sans_un_bruit' />
-                    <button class="button_detail">
-                        Détails
-                    </button>
-                </a>
-                <a>
-                    <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/dune.jpg"
-                        alt="dune" width="259" heigth="252" title='dune' />
-                    <button class="button_detail">
-                        Détails
-                    </button>
-                </a>
-            </div>
-        </article>
+    <section>
+        <h2>Films les mieux notés</h2>
+        <article id="six_best_movies" class="six_best_movies"></article>
     </section>
-    <section class="film">
+
+    <section>
         <h2>Catégorie "Action"</h2>
-
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/master.jpeg"
-                    alt="master" width="259" heigth="252" title='master' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/dune.jpg"
-                    alt="dune" width="259" heigth="252" title='dune' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/furiosa.jpg"
-                    alt="furiosa" width="259" heigth="252" title='Furiosa' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/chandu_champion.jpg"
-                    alt="chandu_champion" width="259" heigth="252" title='chandu_champion' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
+        <article id="action_movies" class="action_movies"></article>
     </section>
+
     <section class="film">
         <h2>Catégorie "Adventure"</h2>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/sans_un_bruit.jpg"
-                    alt="sans_un_bruit" width="259" heigth="252" title='sans_un_bruit' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/indiana_jones.jpg"
-                    alt="indiana_jones" width="259" heigth="252" title='indiana_jones' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/orlando.jpg"
-                    alt="orlando" width="259" heigth="252" title='orlando' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/chandu_champion.jpg"
-                    alt="chandu_champion" width="259" heigth="252" title='chandu_champion' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
+        <article id="adventure_movies" class="adventure_movies"></article>
     </section>
+
     <section class="film">
-        <h2>Catégorie Sci-Fi”</h2>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/dune.jpg"
-                    alt="dune" width="259" heigth="252" title='dune' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/sans_un_bruit.jpg"
-                    alt="sans_un_bruit" width="259" heigth="252" title='sans_un_bruit' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/furiosa.jpg"
-                    alt="furiosa" width="259" heigth="252" title='Furiosa' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
-        <article>
-            <a>
-                <img src="/Users/maxime/Documents/dev_python/OCR/projet06/Projet_JustStreamIt/affiches/guetteurs.jpg"
-                    alt="guetteurs" width="259" heigth="252" title='guetteurs' />
-                <button class="button_detail">
-                    Détails
-                </button>
-            </a>
-        </article>
+        <h2>Catégorie "Sci-Fi"</h2>
+        <article id="sci-fi_movies" class="sci-fi_movies"></article>
     </section>
-    <section class="film">
-        <h2>Catégorie 1:</h2>
-        <div class="dropdown">
-            <button class="dropbtn">Action</button>
-            <div class="dropdown-content">
-                <a id="dropdown_action" class="dropdown-content_fix" href="#">
-                    Action
-                    <div id="Six_best_movies"></div>
-                </a>
-                <a class="dropdown-content_fix" href="#">Adventure</a>
-                <a class="dropdown-content_fix" href="#">Sci-Fi</a>
+
+    <!-- <section class="film">
+        <h2>Catégorie "Adventure"</h2>
+        <section class="film">
+            <h2>Catégorie Sci-Fi”</h2>
+        </section>
+        <section class="film">
+            <h2>Catégorie 1:</h2>
+            <div class="dropdown">
+                <button class="dropbtn">Action</button>
+                <div class="dropdown-content">
+                    <a id="dropdown_action" class="dropdown-content_fix" href="#">
+                        Action
+                        <div id="Six_best_movies"></div>
+                    </a>
+                    <a class="dropdown-content_fix" href="#">Adventure</a>
+                    <a class="dropdown-content_fix" href="#">Sci-Fi</a>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="film">
-        <h2>Catégorie 2: </h2>
-        <div class="dropdown">
-            <button class="dropbtn">Action</button>
-            <div class="dropdown-content">
-                <a class="dropdown-content_fix" href="#">Action</a>
-                <a class="dropdown-content_fix" href="#">Adventure</a>
-                <a class="dropdown-content_fix" href="#">Sci-Fi</a>
+        </section>
+        <section class="film">
+            <h2>Catégorie 2: </h2>
+            <div class="dropdown">
+                <button class="dropbtn">Action</button>
+                <div class="dropdown-content">
+                    <a class="dropdown-content_fix" href="#">Action</a>
+                    <a class="dropdown-content_fix" href="#">Adventure</a>
+                    <a class="dropdown-content_fix" href="#">Sci-Fi</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section> -->
+    <!-- </section> -->
 </body>
 
 </html>
