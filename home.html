@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <title>Vidéo à la demande</title>
-    <link href="design.css" rel="stylesheet" class="border_page">
-    <script src="displayBestMovie.js" defer></script>
-    <script src="displaySixBestMovies.js" defer></script>
-    <script src="displayActionMovies.js" defer></script>
-    <script src="displayAdventureMovies.js" defer></script>
-    <!-- <script src="displaySfiCiMovies.js" defer></script>
-    <script src="modalWindows.js" defer></script> -->
-    <!-- <script src="dropDownActionMovies.js" defer></script> -->
+    <script src="modalWindows.js" defer></script>
+    <script src="displayMultiCategoryMovies.js" defer></script>
+    <script src="displayMultiCategoryMoviesWithDropDown.js" defer></script>
+    <script src="specifiedCategoryMovies.js" defer></script>
+    <link href="website_structure.css" rel="stylesheet">
+    <link href="modal_window.css" rel="stylesheet">
+    <link href="generale_buttons.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -21,71 +21,61 @@
         <img src="#" class="juststreamit_logo" alt="logo" />
     </header>
 
-    <section class="best_movie_section">
+    <section class="best_movie_section" id="best_movie_section">
         <h2>Meilleur film</h2>
-        <article id="best_movie" class="best_movie"></article>
-        <div class="best_movie_detail_button">
-            <button class="red_btn openModalBtn">Détails</button>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <button class="close">Fermé</button>
-                    <p>This is a modal window!</p>
+        <article id="bestMovie" class="best_movie">
+            <div>
+                <button class="red_button" id="openModalButton">Détail</button>
+                <div id="modalOverlay" class="modal-overlay"></div>
+                <div id="myModal" class="modal">
+                    <div id="modal-content" class="modal-content">
+                    </div>
                 </div>
             </div>
-        </div>
+        </article>
     </section>
 
     <section>
         <h2>Films les mieux notés</h2>
-        <article id="six_best_movies" class="six_best_movies"></article>
+        <article id="sixBestMovies" class="displayMovies"></article>
     </section>
 
     <section>
-        <h2>Catégorie "Action"</h2>
-        <article id="action_movies" class="action_movies"></article>
+        <h2>Catégorie "Drama"</h2>
+        <article id="dramaMovies" class="displayMovies"></article>
     </section>
 
-    <section class="film">
-        <h2>Catégorie "Adventure"</h2>
-        <article id="adventure_movies" class="adventure_movies"></article>
+    <section>
+        <h2>Catégorie "Crime"</h2>
+        <article id="crimeMovies" class="displayMovies"></article>
     </section>
 
-    <section class="film">
-        <h2>Catégorie "Sci-Fi"</h2>
-        <article id="sci-fi_movies" class="sci-fi_movies"></article>
-    </section>
+    <section>
+        <h2>Catégorie 1:</h2>
+        <div class="dropdown">
+            <button id="dropBtn" class="dropbtn">Categories</button>
+            <div id="dropdown-content" class="dropdown-content">
+                <!--  <a class="dropbtn" id="actionDropBtn">
+                    <p>Action</p>
+                </a>
 
-    <!-- <section class="film">
-        <h2>Catégorie "Adventure"</h2>
-        <section class="film">
-            <h2>Catégorie Sci-Fi”</h2>
-        </section>
-        <section class="film">
-            <h2>Catégorie 1:</h2>
-            <div class="dropdown">
-                <button class="dropbtn">Action</button>
-                <div class="dropdown-content">
-                    <a id="dropdown_action" class="dropdown-content_fix" href="#">
-                        Action
-                        <div id="Six_best_movies"></div>
-                    </a>
-                    <a class="dropdown-content_fix" href="#">Adventure</a>
-                    <a class="dropdown-content_fix" href="#">Sci-Fi</a>
-                </div>
+                <a class="dropbtn" id="bestMovieDropBtn">
+                    <p>Best movies</p>
+                </a>
+
+                <a class="dropbtn" id="adventureDropBtn">
+                    <p>Adventure</p>
+                </a>
+
+                <a class="dropbtn" id="crimeDropbtn">
+                    <p>Crime</p>
+                </a> -->
             </div>
-        </section>
-        <section class="film">
-            <h2>Catégorie 2: </h2>
-            <div class="dropdown">
-                <button class="dropbtn">Action</button>
-                <div class="dropdown-content">
-                    <a class="dropdown-content_fix" href="#">Action</a>
-                    <a class="dropdown-content_fix" href="#">Adventure</a>
-                    <a class="dropdown-content_fix" href="#">Sci-Fi</a>
-                </div>
+            <div id="moviesContainerDropDown" class="displayMovies">
             </div>
-        </section> -->
-    <!-- </section> -->
+        </div>
+    </section>
+
 </body>
 
 </html>

@@ -1,0 +1,132 @@
+/******************* MODAL WINDOWS *******************/
+.modal_red_button {
+    display: none; 
+    position: absolute;
+    left: -500px;
+    top: 0px;
+    width: 600px; 
+    height: 1000px;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid rgb(0, 0, 0) solid 5px;
+}
+
+.modal_black_button {
+    display: none; 
+    width: 600px; 
+    height: 1000px;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid rgb(0, 0, 0) solid 5px;
+}
+
+.modal-content {
+    position: absolute;
+    height: 500px;
+    width: 440px;
+    top: -100px;
+    left: -160px;
+    background-color: #fefefe;
+    margin: 15% 15%;
+    padding: 20px;
+    border: 1px solid #888 solid 5px;
+}
+
+.modal_picture_movie {
+    position: relative;
+    top: -300px;
+    left: 240px;
+}
+
+.modal_information_movie_partOne{
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: -170px;
+    left: -10px;
+    position: relative
+}
+
+.h2_modal_title_movie{
+    height: 60px;
+    width: 300px;
+    position: relative;
+    top: -120px;
+    left: -10px;
+}
+
+.modal_information_movie_partOne p:first-child {
+    height: 5px;
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.modal_information_movie_partOne p:nth-child(2) {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+.modal_information_movie_partOne p:nth-child(3) {
+    height: 5px;
+    width: 150px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.modal_information_movie_partOne p:nth-child(4) {
+    position: relative;
+    top: 50px;
+}
+
+.modal_information_movie_partOne p:nth-child(5) {
+    position: relative;
+    top: 150px;
+}
+
+.modal_information_movie_partTwo {
+    position: relative;
+    top: -300px;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 227;
+    height: 334; 
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    box-sizing: border-box;
+  }
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 600px;
+    left: 550px;
+    padding: 20px;
+    z-index: 1000;
+}
+.modal-overlay {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 500px;
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+    border:rgb(0, 0, 0) solid 3px;
+    
+}
+
+.closeModalButton{
+    position: relative;
+    top: -200px;
+    left: 170px;
+}

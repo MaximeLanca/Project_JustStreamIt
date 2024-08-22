@@ -1,0 +1,73 @@
+/******************* WEBSITE STRUCTURE *******************/
+
+h1{
+    font-family: Oswald;
+    color: rgba(255, 255, 255, 1);
+    vertical-align: middle;
+}
+
+h3 {
+    width: 200px;
+}
+
+header{
+    background-position: 1000px 1000px; 
+    background-color: rgb(97, 120, 127);
+    width: 90%;
+    height: 100px; 
+    padding: 5px;
+    text-align: center;
+}
+
+body {
+    margin-left: 50px;
+}
+/******************* LOGOS *******************/
+
+.juststreamit_logo{
+    position: relative;
+    top: -170px;
+    left: 300px;
+}
+
+/******************* DISPLAY MOVIES *******************/
+
+.movie{
+    padding:20px;
+}
+.best_movie{   
+    padding: 15px;
+    /* display: flex;
+    flex-flow: row wrap; */
+    gap: 10px;
+    border:rgb(0, 0, 0) solid 5px;
+    word-wrap: break-word;
+ }
+
+.best_movie_section{
+    margin-right: 400px;
+}
+
+.displayMovies{
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.best_movie_container {
+    position : relative;
+    top: 0px;
+    left: -100px;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.best_movie_description {
+    height: 70px;
+    width: 500px;
+    position: relative;
+    top: -400px;
+    left: 300px;
+}
