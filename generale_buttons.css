@@ -1,8 +1,8 @@
 /******************* GENERALE BUTTONS *******************/
 .red_button {
-    position : relative;
+    /* position : relative;
     top: 350px;
-    left: 800px;
+    left: 800px; */
     background-color: #f13535;
     color: white;
     padding: 15px 30px;
@@ -13,7 +13,7 @@
     order: 1;
 }
 
-.black_button {
+.blackButton {
     background-color: #000000;
     color: white;
     padding: 10px 15px;
@@ -23,7 +23,7 @@
     margin-left: 10px;
 }
 
-.display_detail_black_button{
+.displayDetailBlackButton{
     position : relative;
     top: -270px;
     left: 90px;

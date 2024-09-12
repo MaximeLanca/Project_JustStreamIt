@@ -1,6 +1,6 @@
 function getMovieInfoForModal(dataMovie) {
 
-    const movieElementForModal = document.getElementById('modal-content');
+    const movieElementForModal = document.getElementById('modalContent');
 
     movieElementForModal.innerHTML =
         `<h2 class="h2_modal_title_movie">${dataMovie.title}</h2>  
@@ -15,7 +15,7 @@ function getMovieInfoForModal(dataMovie) {
                 <img src=${dataMovie.image_url} alt=${dataMovie.title} width="209" heigth="202">
             </a>
         </div>
-        <div class="modal_information_movie_partTwo">
+        <div class="modalInformationMoviePartTwo">
             <p>${dataMovie.long_description}</p>
             <p>Avec:<br>${dataMovie.actors}</p>
         </div>

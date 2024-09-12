@@ -4,16 +4,22 @@ async function fetchGenresMovies() {
     const apiUrl = "http://localhost:8000/api/v1/genres/";
 
     let page = 1
-    while (page != 5) {
+    while (true) {
         let response = await fetch(`${apiUrl}?page=${page}`);
         const jsonResponse = await response.json();
         for (let items of jsonResponse.results) {
             moviesCategoriesList = moviesCategoriesList.concat(items["name"]);
         };
+
+        let nextPage = jsonResponse.next;
+        if (nextPage == null) {
+            break;
+        };
+
         page++;
     };
-    console.log(moviesCategoriesList);
-    let dropDownContent = document.getElementById("dropdown-content");
+
+    let dropDownContent = document.getElementById("dropdownContent");
     for (let category of moviesCategoriesList) {
         dropDownContent.innerHTML += `<a id="${category.toLowerCase()}" class="dropbtn"><p>${category}</p></a>`;
     };
@@ -23,7 +29,7 @@ async function fetchGenresMovies() {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    const dropdownContent = document.querySelector('.dropdown-content');
+    const dropdownContent = document.querySelector('.dropdownContent');
     const dropbtn = document.querySelector('.dropbtn');
 
     dropbtn.addEventListener('click', function () {
@@ -37,17 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-/* function attachDropdownEvents() {
-    const button = document.getElementById('dropBtn');
-    button.addEventListener('click', function () {
-        for (let category of moviesCategoriesList) {
-            const moviesContainer = document.getElementById("moviesContainerDropDown");
-            moviesContainer.innerHTML = "";
-            fetchMovies("moviesContainerDropDown", `sort_by=-imdb_score&genre=${category}`);
-        };
-    });
-};
- */
 function attachDropdownEvents() {
     for (let category of moviesCategoriesList) {
         const button = document.getElementById(`${category.toLowerCase()}`);
@@ -58,6 +53,5 @@ function attachDropdownEvents() {
         });
     };
 };
-
 
 fetchGenresMovies();

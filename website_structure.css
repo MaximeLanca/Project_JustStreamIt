@@ -1,10 +1,10 @@
 /******************* WEBSITE STRUCTURE *******************/
 
-h1{
+/* h1{
     font-family: Oswald;
     color: rgba(255, 255, 255, 1);
     vertical-align: middle;
-}
+} */
 
 h3 {
     width: 200px;
@@ -37,8 +37,6 @@ body {
 }
 .best_movie{   
     padding: 15px;
-    /* display: flex;
-    flex-flow: row wrap; */
     gap: 10px;
     border:rgb(0, 0, 0) solid 5px;
     word-wrap: break-word;
@@ -64,7 +62,7 @@ body {
     flex-flow: row wrap;
     justify-content: space-evenly;
 }
-.best_movie_description {
+.bestMovieDescription {
     height: 70px;
     width: 500px;
     position: relative;

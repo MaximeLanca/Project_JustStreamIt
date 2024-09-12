@@ -24,7 +24,7 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         const movieData = await response.json();
 
         const parentDivContainer = document.createElement('div');
-        parentDivContainer.className = 'movie-container';
+        parentDivContainer.className = 'movieContainer';
 
         const movieElement = document.createElement('a');
         movieElement.className = 'movie';
@@ -33,8 +33,15 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
 
 
         const btnElement = document.createElement('div');
-        btnElement.className = 'display_detail_black_button';
-        btnElement.innerHTML = `<button class="black_button openModalBtn">Détails</button>`;
+        btnElement.className = 'displayDetailBlackButton';
+        btnElement.innerHTML = `<button class="blackButton openModalBtn">Détails</button>`;
+
+        /* const modal = document.createElement('div'); */
+        /* modal.innertHTML = `<div id="modalOverlay" class="modal-overlay"></div>
+        <div id="myModal" class="modal">
+            <div id="modalContent" class="modalContent">
+            </div>
+        </div>`; */
 
         btnElement.addEventListener("click", function () {
             modal.style.display = "block";
@@ -42,6 +49,7 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         })
 
         parentDivContainer.appendChild(movieElement);
+        /* parentDivContainer.appendChild(modal); */
         parentDivContainer.appendChild(btnElement);
         container.appendChild(parentDivContainer);
     };
@@ -61,11 +69,10 @@ async function fetchBestMovie() {
     const secondResponse = await fetch(apiUrlDataBestMovie);
     const movie = await secondResponse.json();
     const movieElementForDescription = document.createElement('p');
-    movieElementForDescription.className = "best_movie_description";
+    movieElementForDescription.className = "text-justify text-lg absolute left-120 top-80 ";
     movieElementForDescription.innerHTML = `<h2>${movie.title}</h2>${movie.description}`;
 
     let displayBestMovie = document.getElementById("bestMovie");
-    console.log(movieElementForPictureData);
     displayBestMovie.appendChild(movieElementForPictureData);
     displayBestMovie.appendChild(movieElementForDescription);
 
@@ -79,3 +86,4 @@ async function fetchBestMovie() {
 
 fetchBestMovie()
 
+/* bestMovieDescription */

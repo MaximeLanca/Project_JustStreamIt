@@ -20,7 +20,7 @@
     border: 1px solid rgb(0, 0, 0) solid 5px;
 }
 
-.modal-content {
+.modalContent {
     position: absolute;
     height: 500px;
     width: 440px;
@@ -85,7 +85,7 @@
     top: 150px;
 }
 
-.modal_information_movie_partTwo {
+.modalInformationMoviePartTwo {
     position: relative;
     top: -300px;
 }
@@ -126,6 +126,8 @@
 }
 
 .closeModalButton{
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid rgb(0, 0, 0) solid 5px;
     position: relative;
     top: -200px;
     left: 170px;

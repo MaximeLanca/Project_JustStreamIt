@@ -11,24 +11,30 @@
     <link href="website_structure.css" rel="stylesheet">
     <link href="modal_window.css" rel="stylesheet">
     <link href="generale_buttons.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="ml-40 mr-60">
 
     <header>
-        <h1 class="center_h1">Vidéos à la demande</h1>
+        <h1 class=" pl-2 text-2xl italic text-white">Vidéos à la demande</h1>
         <img src="#" class="juststreamit_logo" alt="logo" />
     </header>
 
-    <section class="best_movie_section" id="best_movie_section">
-        <h2>Meilleur film</h2>
-        <article id="bestMovie" class="best_movie">
-            <div>
+    <section class="pt-6 mr-80" id="best_movie_section">
+        <div class="pb-6">
+            <h2 class="text-4xl font-bold">Meilleur film</h2>
+        </div>
+
+        <article class="pl-2 border-black border-2 h-13 pb-50" id="bestMovie">
+            <div class="relative h-10 w-100 left-80 top-60">
                 <button class="red_button" id="openModalButton">Détail</button>
+            </div>
+            <div>
                 <div id="modalOverlay" class="modal-overlay"></div>
                 <div id="myModal" class="modal">
-                    <div id="modal-content" class="modal-content">
+                    <div id="modalContent" class="modalContent">
                     </div>
                 </div>
             </div>
@@ -36,40 +42,25 @@
     </section>
 
     <section>
-        <h2>Films les mieux notés</h2>
+        <h2 class="text-4xl font-bold pt-15">Films les mieux notés</h2>
         <article id="sixBestMovies" class="displayMovies"></article>
     </section>
 
     <section>
-        <h2>Catégorie "Drama"</h2>
+        <h2 class="text-4xl font-bold pt-15">Catégorie "Drama"</h2>
         <article id="dramaMovies" class="displayMovies"></article>
     </section>
 
     <section>
-        <h2>Catégorie "Crime"</h2>
+        <h2 class="text-4xl font-bold pt-15">Catégorie "Crime"</h2>
         <article id="crimeMovies" class="displayMovies"></article>
     </section>
 
     <section>
-        <h2>Catégorie 1:</h2>
+        <h2 class="text-4xl font-bold pt-15 pb-10">Catégorie 1:</h2>
         <div class="dropdown">
             <button id="dropBtn" class="dropbtn">Categories</button>
-            <div id="dropdown-content" class="dropdown-content">
-                <!--  <a class="dropbtn" id="actionDropBtn">
-                    <p>Action</p>
-                </a>
-
-                <a class="dropbtn" id="bestMovieDropBtn">
-                    <p>Best movies</p>
-                </a>
-
-                <a class="dropbtn" id="adventureDropBtn">
-                    <p>Adventure</p>
-                </a>
-
-                <a class="dropbtn" id="crimeDropbtn">
-                    <p>Crime</p>
-                </a> -->
+            <div id="dropdownContent" class="dropdown-content">
             </div>
             <div id="moviesContainerDropDown" class="displayMovies">
             </div>
