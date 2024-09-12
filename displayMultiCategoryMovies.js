@@ -36,20 +36,13 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         btnElement.className = 'displayDetailBlackButton';
         btnElement.innerHTML = `<button class="blackButton openModalBtn">Détails</button>`;
 
-        /* const modal = document.createElement('div'); */
-        /* modal.innertHTML = `<div id="modalOverlay" class="modal-overlay"></div>
-        <div id="myModal" class="modal">
-            <div id="modalContent" class="modalContent">
-            </div>
-        </div>`; */
-
         btnElement.addEventListener("click", function () {
             modal.style.display = "block";
             getMovieInfoForModal(movieData);
         })
 
+
         parentDivContainer.appendChild(movieElement);
-        /* parentDivContainer.appendChild(modal); */
         parentDivContainer.appendChild(btnElement);
         container.appendChild(parentDivContainer);
     };
@@ -61,20 +54,26 @@ async function fetchBestMovie() {
     const response = await fetch(apiUrlMoviesorted);
     const jsonResponse = await response.json();
     const firstMovie = jsonResponse.results[0];
-    const movieElementForPictureData = document.createElement('a');
+    const movieElementForPictureData = document.createElement('div');
     movieElementForPictureData.className = "movie";
     movieElementForPictureData.innerHTML = `<img src=${firstMovie.image_url} alt=${firstMovie.title} width="259" heigth="252">`;
 
     const apiUrlDataBestMovie = firstMovie.url
     const secondResponse = await fetch(apiUrlDataBestMovie);
     const movie = await secondResponse.json();
+    const movieElementForAll = document.createElement('div');
     const movieElementForDescription = document.createElement('p');
-    movieElementForDescription.className = "text-justify text-lg absolute left-120 top-80 ";
-    movieElementForDescription.innerHTML = `<h2>${movie.title}</h2>${movie.description}`;
+    const movieElementForTitle = document.createElement('h2');
+    movieElementForAll.className = "text-justify text-lg absolute left-120 top-80 ";
+    movieElementForDescription.innerHTML = `${movie.description}`;
+    movieElementForTitle.innerHTML = `${movie.title}`;
+    movieElementForAll.appendChild(movieElementForTitle);
+    movieElementForAll.appendChild(movieElementForDescription);
 
     let displayBestMovie = document.getElementById("bestMovie");
     displayBestMovie.appendChild(movieElementForPictureData);
-    displayBestMovie.appendChild(movieElementForDescription);
+    //displayBestMovie.appendChild(movieElementForDescription);
+    displayBestMovie.appendChild(movieElementForAll);
 
     let modal = document.getElementById("myModal");
     const btnElement = document.getElementById('openModalButton');

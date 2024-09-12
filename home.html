@@ -25,6 +25,29 @@
     <section class="pt-6 mr-80" id="best_movie_section">
         <div class="pb-6">
             <h2 class="text-4xl font-bold">Meilleur film</h2>
+
+            <article class="pl-2 border-black border-2 h-13 pb-50" id="bestMovie">
+                <div id="bestmovie__box-img" class="movie">
+                    <!--<img src="" alt="" notes="" width="259" heigth="252" id="bestmovie__img">-->
+                </div>
+                <div id="bestmovie__box-meta">
+                    <div class="relative h-10 w-100 left-80 top-60">
+                        <button class="red_button" id="openModalButton">Détail</button>
+                    </div>
+                    <div id="bestmovie__modal">
+                        <div id="modalOverlay" class="modal-overlay"></div>
+                        <div id="myModal" class="modal">
+                            <div id="modalContent" class="modalContent">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-justify text-lg absolute left-120 top-80 ">
+                        <h2 id="bestmovie__title"></h2>
+                        <p id="bestmovie__descr"></p>
+                    </div>
+                </div>
+            </article>
+
         </div>
 
         <article class="pl-2 border-black border-2 h-13 pb-50" id="bestMovie">
