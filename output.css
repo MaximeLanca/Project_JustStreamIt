@@ -620,6 +620,14 @@ video {
   left: 0px;
 }
 
+.top-0\.5 {
+  top: 0.125rem;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
 .m-7 {
   margin: 1.75rem;
 }
@@ -674,6 +682,10 @@ video {
 
 .w-2\/4 {
   width: 50%;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {

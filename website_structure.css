@@ -1,11 +1,5 @@
 /******************* WEBSITE STRUCTURE *******************/
 
-/* h1{
-    font-family: Oswald;
-    color: rgba(255, 255, 255, 1);
-    vertical-align: middle;
-} */
-
 h3 {
     width: 200px;
 }
@@ -22,19 +16,9 @@ header{
 body {
     margin-left: 50px;
 }
-/******************* LOGOS *******************/
-
-.juststreamit_logo{
-    position: relative;
-    top: -170px;
-    left: 300px;
-}
 
 /******************* DISPLAY MOVIES *******************/
 
-.movie{
-    padding:20px;
-}
 .best_movie{   
     padding: 15px;
     gap: 10px;
