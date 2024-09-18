@@ -21,7 +21,12 @@
 }
 
 .modalContent {
-    position: absolute;
+    /* background-color: #fefefe; */
+    margin: 5% auto; /* 15% from the top and centered */
+    /* padding: 20px;
+    border: 1px solid #888; */
+/*     width: 50%; /* Could be more or less, depending on screen size */ */
+    /* position: absolute;
     height: 500px;
     width: 440px;
     top: -100px;
@@ -29,16 +34,10 @@
     background-color: #fefefe;
     margin: 15% 15%;
     padding: 20px;
-    border: 1px solid #888 solid 5px;
+    border: 1px solid #888 solid 5px; */
 }
 
-.modal_picture_movie {
-    position: relative;
-    top: -300px;
-    left: 240px;
-}
-
-.modal_information_movie_partOne{
+/* .modal_information_movie_partOne{
     display: flex;
     flex-flow: column wrap;
     position: relative;
@@ -46,14 +45,14 @@
     left: -10px;
     position: relative
 }
-
-.h2_modal_title_movie{
+ */
+/* .h2_modal_title_movie{
     height: 60px;
     width: 300px;
     position: relative;
     top: -120px;
     left: -10px;
-}
+} */
 
 .modal_information_movie_partOne p:first-child {
     height: 5px;
@@ -85,10 +84,10 @@
     top: 150px;
 }
 
-.modalInformationMoviePartTwo {
+/* .modalInformationMoviePartTwo {
     position: relative;
     top: -300px;
-}
+} */
 
 .overlay {
     position: absolute;
@@ -106,14 +105,24 @@
   }
 
 .modal {
-    display: none;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* display: none;
     position: absolute;
     top: 600px;
     left: 550px;
     padding: 20px;
-    z-index: 1000;
+    z-index: 1000; */
 }
-.modal-overlay {
+/* .modal-overlay {
     display: none;
     position: absolute;
     top: 50%;
@@ -123,7 +132,7 @@
     background-color: rgb(255, 255, 255);
     border:rgb(0, 0, 0) solid 3px;
     
-}
+} */
 
 .closeModalButton{
     background-color: rgba(0,0,0,0.4);
@@ -132,3 +141,4 @@
     top: -200px;
     left: 170px;
 }
+

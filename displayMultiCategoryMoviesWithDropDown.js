@@ -27,7 +27,7 @@ async function fetchGenresMovies() {
     attachDropdownEvents();
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+/* document.addEventListener('DOMContentLoaded', function () {
 
     const dropdownContent = document.querySelector('.dropdownContent');
     const dropbtn = document.querySelector('.dropbtn');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownContent.classList.remove('show');
         }
     });
-});
+}); */
 
 function attachDropdownEvents() {
     for (let category of moviesCategoriesList) {
