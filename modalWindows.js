@@ -16,12 +16,15 @@ function getMovieInfoForModal(dataMovie) {
                     <img src=${dataMovie.image_url} alt=${dataMovie.title} width="259" heigth="252">
                 </div>
             </div>
-            <div>
+            <div class="my-8">
                 <p>${dataMovie.long_description}</p>
+                
+            </div class="my-8">
                 <p>Avec:<br>${dataMovie.actors}</p>
+            <div>
             </div>
             <div class="flex justify-center relative bottom-0">
-                <button id="closeModalButton" class="bg-red-600 rounded-lg closeModalButton border-solid ">Fermer</button>
+                <button id="closeModalButton" class="bg-red-600 rounded-2xl text-white border-solid px-10">Fermer</button>
             </div>
         </div>`;
 
@@ -45,29 +48,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
-/* movieElementForModal.innerHTML =
-
-        `<h2 class="top-0 text-2xl">${dataMovie.title}</h2>  
-         <div class="flex flex-col ">
-            <p>${dataMovie.year} - ${dataMovie.genres}</p>
-            <p>${dataMovie.duration} minutes - ${dataMovie.countries}</p>
-            <p>IMDB Score: ${dataMovie.imdb_score} / 10</p>
-            <p>Réaliser par: ${dataMovie.writers}</p>
-        </div>
-        <div class="top-2" dir="rtl"style="width: 700px; height: 400px;">
-            <div style="width:280px;height:300px;">
-                <a>
-                    <img src=${dataMovie.image_url} alt=${dataMovie.title} width="259" heigth="252">
-                </a>
-            </div>
-        </div>
-        <div>
-            <p>${dataMovie.long_description}</p>
-            <p>Avec:<br>${dataMovie.actors}</p>
-        </div>
-        <div class="bottom-0">
-            <button id="closeModalButton" class="closeModalButton">Fermer</button>
-        </div>
-        `; */

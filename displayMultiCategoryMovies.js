@@ -4,10 +4,10 @@ async function fetchMovies(movieCategory, apiParam) {
     let adjustedItemsList = [];
 
     for (let page = 1; page <= 2; page++) {
-        const response = await fetch(`${apiUrl}?page=${page}&${apiParam}`);
-        const jsonResponse = await response.json();
-        itemsList = itemsList.concat(jsonResponse.results);
-        let nextPage = jsonResponse.next;
+        const moviesSorted = await fetch(`${apiUrl}?page=${page}&${apiParam}`);
+        const jsonMoviesSorted = await moviesSorted.json();
+        itemsList = itemsList.concat(jsonMoviesSorted.results);
+        let nextPage = jsonMoviesSorted.next;
 
         if (nextPage == null) {
             break;
@@ -21,18 +21,18 @@ async function fetchMovies(movieCategory, apiParam) {
 async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
     let modal = document.getElementById("myModal");
     const container = document.getElementById(movieCategory);
-    for (const movie of adjustedItemsList) {
+    for (const jsonDataBestMovie of adjustedItemsList) {
 
-        const apiUrlDataCategoryMovie = movie.url;
+        const apiUrlDataCategoryMovie = jsonDataBestMovie.url;
 
-        const response = await fetch(apiUrlDataCategoryMovie);
-        const movieData = await response.json();
+        const moviesSorted = await fetch(apiUrlDataCategoryMovie);
+        const movieData = await moviesSorted.json();
 
         const parentDivContainer = document.createElement('div');
         parentDivContainer.className = 'movieContainer';
 
         const movieElement = document.createElement('a');
-        movieElement.className = 'movie';
+        movieElement.className = 'jsonDataBestMovie';
         movieElement.innerHTML = `<img src=${movieData.image_url} alt=${movieData.title}><h3>${movieData.title}</h3>`;
         container.appendChild(movieElement);
 
@@ -56,35 +56,36 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
 
 async function fetchBestMovie() {
     const apiUrlMoviesorted = "http://localhost:8000/api/v1/titles/?sort_by=-imdb_score";
-    const response = await fetch(apiUrlMoviesorted);
-    const jsonResponse = await response.json();
-    const firstMovie = jsonResponse.results[0];
+    const moviesSorted = await fetch(apiUrlMoviesorted);
+    const jsonMoviesSorted = await moviesSorted.json();
+    const firstMovie = jsonMoviesSorted.results[0];
     const movieElementForPictureData = document.createElement('div');
-    movieElementForPictureData.className = "movie";
-    movieElementForPictureData.innerHTML = `<img src=${firstMovie.image_url} alt=${firstMovie.title} width="259" heigth="252">`;
 
     const apiUrlDataBestMovie = firstMovie.url
-    const secondResponse = await fetch(apiUrlDataBestMovie);
-    const movie = await secondResponse.json();
+    const dataBestMovie = await fetch(apiUrlDataBestMovie);
+    const jsonDataBestMovie = await dataBestMovie.json();
+
+    movieElementForPictureData.innerHTML =
+        `<div class="pl-2 border-black border-4 h-13 pb-50 flex flex-row " >
+            <div class="p-2 pr-10">
+                <img src=${firstMovie.image_url} alt=${firstMovie.title} width="200" heigth="252">
+            </div class="p-2">
+            <div class="flex flex-col ">
+                <div class="text-4xl font-bold">
+                    ${jsonDataBestMovie.title}
+                </div>
+                <div>
+                    <div class="text-2xl italic font-light pt-6" style="width:390px">
+                        <p>${jsonDataBestMovie.description}</p>
+                    </div>
+                    <div class="pt-6">
+                        <button class="red_button" id="openModalButton">Détail</button>
+                    </div>
+                </div>
+            </div>
+        </div>`;
 
     const movieElementForAll = document.createElement('div');
-    movieElementForAll.className = "red_button";
-    movieElementForAll.setAttribute = ('id', 'openModalButton');
-
-    const movieElementForDescription = document.createElement('p');
-    movieElementForDescription.className = "w-60";
-    const movieElementForTitle = document.createElement('h2');
-    const redButtonBestMovie = document.createElement('div');
-
-    redButtonBestMovie.innerHTML = '<button class="red_button" id="openModalButton">Détail</button>';
-    movieElementForAll.className = "text-justify text-lg p-3 space-y-5";
-    movieElementForDescription.innerHTML = `${movie.description}`;
-    movieElementForTitle.innerHTML = `${movie.title}`;
-
-    movieElementForAll.appendChild(movieElementForTitle);
-    movieElementForAll.appendChild(movieElementForDescription);
-    movieElementForAll.appendChild(redButtonBestMovie);
-
     let displayBestMovie = document.getElementById("bestMovie");
     displayBestMovie.appendChild(movieElementForPictureData);
     displayBestMovie.appendChild(movieElementForAll);
@@ -93,10 +94,8 @@ async function fetchBestMovie() {
     const btnElement = document.getElementById('openModalButton');
     btnElement.addEventListener("click", function () {
         modal.style.display = "block";
-        getMovieInfoForModal(movie);
+        getMovieInfoForModal(jsonDataBestMovie);
     });
 }
 
 fetchBestMovie()
-
-/* bestMovieDescription */
