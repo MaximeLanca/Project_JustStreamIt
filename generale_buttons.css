@@ -97,3 +97,19 @@
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4);
 }
+
+/* header{
+    background-position: 1000px 1000px; 
+    background-color: rgb(97, 120, 127);
+    width: 90%;
+    height: 100px; 
+    padding: 5px;
+    text-align: center;
+} */
+
+.displayMovies{
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
