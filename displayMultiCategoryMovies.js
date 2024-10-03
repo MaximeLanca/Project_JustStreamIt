@@ -24,32 +24,33 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
     for (const jsonDataBestMovie of adjustedItemsList) {
 
         const apiUrlDataCategoryMovie = jsonDataBestMovie.url;
-
         const moviesSorted = await fetch(apiUrlDataCategoryMovie);
         const movieData = await moviesSorted.json();
 
         const parentDivContainer = document.createElement('div');
-        parentDivContainer.className = 'movieContainer';
+        parentDivContainer.className = 'relative';
 
-        const movieElement = document.createElement('a');
-        movieElement.className = 'jsonDataBestMovie';
-        movieElement.innerHTML = `<img src=${movieData.image_url} alt=${movieData.title}><h3>${movieData.title}</h3>`;
-        container.appendChild(movieElement);
+        const movieElement = document.createElement('div');
+        movieElement.className = 'relative pb-8';
+        movieElement.innerHTML = `
+            <div>
+                <a><img src=${movieData.image_url} alt=${movieData.title}></a>
+                <div class=" w-[182px] absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[100px] "></div>
+            </div>  
+            <h3 class="absolute text-xm text-white top-10 left-5 w-[150px] z-10">${movieData.title}</h3>
+            `;
 
-
-        const btnElement = document.createElement('div');
-        btnElement.className = 'displayDetailBlackButton';
-        btnElement.innerHTML = `<button class="blackButton openModalBtn">Détails</button>`;
-
+        const btnElement = document.createElement('button');
+        btnElement.className = "absolute top-20 left-20 bg-black text-white font-thin text-sm/[3px] p-2 rounded-full w-[70px] cursor-pointer openModalBtn";
+        btnElement.innerHTML = "Détails"
         btnElement.addEventListener("click", function () {
             modal.style.display = "block";
             getMovieInfoForModal(movieData);
         })
 
+        movieElement.appendChild(btnElement);
+        container.appendChild(movieElement);
 
-        parentDivContainer.appendChild(movieElement);
-        parentDivContainer.appendChild(btnElement);
-        container.appendChild(parentDivContainer);
     };
 
 }
@@ -66,29 +67,27 @@ async function fetchBestMovie() {
     const jsonDataBestMovie = await dataBestMovie.json();
 
     movieElementForPictureData.innerHTML =
-        `<div class="pl-2 border-black border-4 h-13 pb-50 flex flex-row " >
+        `<div class="border-black border-4 h-13 pb-50 flex " >
             <div class="p-2 pr-10">
                 <img src=${firstMovie.image_url} alt=${firstMovie.title} width="200" heigth="252">
             </div class="p-2">
-            <div class="flex flex-col ">
-                <div class="text-4xl font-bold">
+            <div class="flex flex-col">
+                <div class="relative top-4 text-4xl font-bold">
                     ${jsonDataBestMovie.title}
                 </div>
                 <div>
                     <div class="text-2xl italic font-light pt-6" style="width:390px">
                         <p>${jsonDataBestMovie.description}</p>
                     </div>
-                    <div class="pt-6">
-                        <button class="red_button" id="openModalButton">Détail</button>
+                    <div class="pt-6 relative left-60 top-10">
+                        <button class=" bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer order-1 w-[120px]" id="openModalButton">Détail</button>
                     </div>
                 </div>
             </div>
         </div>`;
 
-    const movieElementForAll = document.createElement('div');
     let displayBestMovie = document.getElementById("bestMovie");
     displayBestMovie.appendChild(movieElementForPictureData);
-    displayBestMovie.appendChild(movieElementForAll);
 
     let modal = document.getElementById("myModal");
     const btnElement = document.getElementById('openModalButton');

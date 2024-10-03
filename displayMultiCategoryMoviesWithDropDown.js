@@ -21,27 +21,11 @@ async function fetchGenresMovies() {
 
     let dropDownContent = document.getElementById("dropdownContent");
     for (let category of moviesCategoriesList) {
-        dropDownContent.innerHTML += `<a id="${category.toLowerCase()}" class="dropbtn"><p>${category}</p></a>`;
+        dropDownContent.innerHTML += `<a id="${category.toLowerCase()}" class="relative inline-block"><p>${category}</p></a>`;
     };
 
     attachDropdownEvents();
 };
-
-/* document.addEventListener('DOMContentLoaded', function () {
-
-    const dropdownContent = document.querySelector('.dropdownContent');
-    const dropbtn = document.querySelector('.dropbtn');
-
-    dropbtn.addEventListener('click', function () {
-        dropdownContent.classList.toggle('show');
-    });
-
-    window.addEventListener('click', function (event) {
-        if (!event.target.matches('.dropbtn') && dropdownContent.classList.contains('show')) {
-            dropdownContent.classList.remove('show');
-        }
-    });
-}); */
 
 function attachDropdownEvents() {
     for (let category of moviesCategoriesList) {
@@ -53,5 +37,10 @@ function attachDropdownEvents() {
         });
     };
 };
+
+document.getElementById("dropBtn").addEventListener("click", function () {
+    const dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.classList.toggle("hidden");
+});
 
 fetchGenresMovies();

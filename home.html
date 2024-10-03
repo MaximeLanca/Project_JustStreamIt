@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
     <meta charset="utf-8">
     <title>Vidéo à la demande</title>
@@ -13,13 +15,15 @@
 
 </head>
 
-<body class="mx-20">
+<body class="flex flex-col items-center">
 
-    <header class="bg-cyan-900 bg-cover bg-center ">
-        <h1 class=" pl-2 font-light text-3xl italic text-white mt-6">Vidéos à la demande</h1>
+    <header class="bg-slate-600 bg-cover bg-center h-[70px] ">
+        <h1 class=" pl-2 font-light text-3xl italic text-white w-[700px] h-[70px] flex items-center justify-center">
+            Vidéos à la
+            demande</h1>
     </header>
 
-    <section class="pt-6 mr-80" id="best_movie_section">
+    <section class="pt-6 w-[700px]" id="best_movie_section">
         <div class="pb-6">
             <h2 class="text-4xl font-bold">Meilleur film</h2>
         </div>
@@ -27,41 +31,48 @@
         </article>
     </section>
 
-    <section>
-        <h2 class="text-4xl font-bold pt-20">Films les mieux notés</h2>
-        <article id="sixBestMovies" class="displayMovies"></article>
+    <section class="w-[700px]">
+        <h2 class="text-4xl font-bold pt-20 pb-6">Films les mieux notés</h2>
+        <article id="sixBestMovies"
+            class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+            <!-- <button id="viewMoreButton" class="mt-4 text-blue-500 font-bold">Voir plus</button> -->
+        </article>
     </section>
 
-    <section>
-        <h2 class="text-4xl font-bold pt-15">Catégorie "Drama"</h2>
-        <article id="dramaMovies" class="displayMovies"></article>
+    <section class="w-[700px]">
+        <h2 class="text-4xl font-bold pt-15 pb-6">Catégorie "Drama"</h2>
+        <article id="dramaMovies"
+            class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+        </article>
     </section>
 
-    <section>
-        <h2 class="text-4xl font-bold pt-15">Catégorie "Crime"</h2>
-        <article id="crimeMovies" class="displayMovies"></article>
+    <section class="w-[700px]">
+        <h2 class="text-4xl font-bold pt-15 pb-6">Catégorie "Crime"</h2>
+        <article id="crimeMovies"
+            class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+        </article>
     </section>
 
-    <section>
+    <section class="w-[700px]">
         <h2 class="text-4xl font-bold pt-15 pb-10">Catégorie 1:</h2>
-        <div class="dropdown">
-            <button id="dropBtn" class="dropbtn">Categories</button>
-            <div id="dropdownContent" class="dropdown-content">
-            </div>
-            <div id="moviesContainerDropDown" class="displayMovies">
+        <div class="relative inline-block">
+            <button id="dropBtn"
+                class="font-oswald bg-white text-black px-4 py-2 text-lg border cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9]">Categories</button>
+            <!--  <div class="hidden absolute bg-gray-100 min-w-[160px] shadow-lg z-10 border-black border-2"></div> -->
+            <div id="dropdownContent" class="hidden absolute bg-gray-100 min-w-[160px] shadow-lg z-10"></div>
+            <div id="moviesContainerDropDown"
+                class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 mgrid grid-cols-1 md:grid-cols-2 mx-auto flex items-center justify-center lg:grid-cols-3 gap-4 mx-auto flex items-center justify-center">
             </div>
         </div>
     </section>
 
     <div id="modal-container">
-        <div id="myModal" class="modal">
-            <div id="modalContent" class=" w-2/4 h-full border border-solid border-gray-400 p-5 bg-white m-px relative">
+        <div id="myModal" class="hidden fixed z-10 inset-0 w-full h-full overflow-auto bg-black bg-opacity-40 ">
+            <div id="modalContent"
+                class=" z-50 w-1/2 max-w-md mx-auto h-auto border border-solid border-gray-400 p-5 bg-white m-px flex justify-center items-center">
             </div>
         </div>
     </div>
 </body>
 
 </html>
-
-<!-- class=" inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center" -->
-<!-- modalContent  -->
