@@ -21,38 +21,73 @@ async function fetchMovies(movieCategory, apiParam) {
 async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
     let modal = document.getElementById("myModal");
     const container = document.getElementById(movieCategory);
+    let counter = 0;
+    let hiddenMovies = [];
     for (const jsonDataBestMovie of adjustedItemsList) {
-
+        const movieElement = document.createElement('div');
         const apiUrlDataCategoryMovie = jsonDataBestMovie.url;
         const moviesSorted = await fetch(apiUrlDataCategoryMovie);
         const movieData = await moviesSorted.json();
-
         const parentDivContainer = document.createElement('div');
         parentDivContainer.className = 'relative';
 
-        const movieElement = document.createElement('div');
-        movieElement.className = 'relative pb-8';
+        counter += 1;
+        if (counter > 4) {
+            movieElement.className = 'relative pb-8 w-[300px] lg:block md:hidden sm:hidden';
+            movieElement.id = `hidden${movieCategory}`;
+            hiddenMovies.push(movieElement);
+        } else {
+            movieElement.className = 'relative pb-8 w-[300px]';
+        };
         movieElement.innerHTML = `
-            <div>
-                <a><img src=${movieData.image_url} alt=${movieData.title}></a>
-                <div class=" w-[182px] absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[100px] "></div>
-            </div>  
-            <h3 class="absolute text-xm text-white top-10 left-5 w-[150px] z-10">${movieData.title}</h3>
-            `;
+                <div>
+                    <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="300"></a>
+                    <div class="w-[182px] absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[100px] "></div>
+                </div>  
+                <h3 class="absolute text-xm text-white top-10 left-5 w-[150px] z-10">${movieData.title}</h3>
+                `;
 
         const btnElement = document.createElement('button');
         btnElement.className = "absolute top-20 left-20 bg-black text-white font-thin text-sm/[3px] p-2 rounded-full w-[70px] cursor-pointer openModalBtn";
-        btnElement.innerHTML = "Détails"
+        btnElement.innerHTML = "Détails";
         btnElement.addEventListener("click", function () {
             modal.style.display = "block";
             getMovieInfoForModal(movieData);
-        })
+        });
 
         movieElement.appendChild(btnElement);
         container.appendChild(movieElement);
-
     };
 
+    if (hiddenMovies.length > 0) {
+        const btnViewMore = document.createElement('button');
+        btnViewMore.className = "bg-red-600 rounded-2xl text-white border-solid px-10 col-span-full mx-auto sm:block md:block lg:hidden";
+        btnViewMore.innerHTML = "Voir plus";
+        btnViewMore.addEventListener("click", function () {
+            hiddenMovies.forEach(movie => {
+                movie.classList.remove("md:hidden");
+                movie.classList.add("md:block");
+            });
+            btnViewMore.style.display = "none"; // Cache le bouton "Voir plus"
+            btnViewLess.style.display = "block"; // Affiche le bouton "Voir moins"
+        });
+
+        const btnViewLess = document.createElement('button');
+        btnViewLess.className = "bg-red-600 rounded-2xl text-white border-solid px-10 col-span-full mx-auto sm:hidden md:hidden lg:hidden";
+        btnViewLess.innerHTML = "Voir moins";
+        btnViewLess.style.display = "none";
+        btnViewLess.addEventListener("click", function () {
+            hiddenMovies.forEach(movie => {
+                movie.classList.remove("md:block"); // Cache les films sur les tailles moyennes
+                movie.classList.add("md:hidden");
+            });
+            btnViewLess.style.display = "none"; // Cache le bouton "Voir moins"
+            btnViewMore.style.display = "block"; // Réaffiche le bouton "Voir plus"
+        });
+
+        container.appendChild(btnViewMore);
+        container.appendChild(btnViewLess);
+    }
 }
 
 async function fetchBestMovie() {
@@ -67,22 +102,20 @@ async function fetchBestMovie() {
     const jsonDataBestMovie = await dataBestMovie.json();
 
     movieElementForPictureData.innerHTML =
-        `<div class="border-black border-4 h-13 pb-50 flex " >
-            <div class="p-2 pr-10">
-                <img src=${firstMovie.image_url} alt=${firstMovie.title} width="200" heigth="252">
+        `<div class="lg:border-black border-4 pb-50 flex md:border-red-600 sm:border-purple-700 w-[329)px] lg:h-[360px] md:h-[330px] sm:h-[463px]" >
+            <div class="pl-4 pt-4 pr-5 lg:h-full md:h-[316px] sm=h-[100px]">
+                <img src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
             </div class="p-2">
-            <div class="flex flex-col">
-                <div class="relative top-4 text-4xl font-bold">
+            <div class=" m-2 basis-3/4 flex grid justify-items-stretch">
+                <div class="relative font-bold lg: top-4 text-4xl md:text-4xl sm:text-3xl">
                     ${jsonDataBestMovie.title}
                 </div>
-                <div>
-                    <div class="text-2xl italic font-light pt-6" style="width:390px">
-                        <p>${jsonDataBestMovie.description}</p>
-                    </div>
-                    <div class="pt-6 relative left-60 top-10">
-                        <button class=" bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer order-1 w-[120px]" id="openModalButton">Détail</button>
-                    </div>
+                <div class="italic font-light lg:text-3xl pt-6 md:text-2xl pt-1 sm:text-xl">
+                    <p>${jsonDataBestMovie.description}</p>
                 </div>
+                <div class="justify-self-end pt-6 pr-10">
+                        <button class=" bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer order-1 w-[120px] sm:p-2 w-[100px] " id="openModalButton">Détail</button>
+                    </div>
             </div>
         </div>`;
 

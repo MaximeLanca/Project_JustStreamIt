@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Vidéo à la demande</title>
     <script src="modalWindows.js" defer></script>
     <script src="displayMultiCategoryMovies.js" defer></script>
     <script src="displayMultiCategoryMoviesWithDropDown.js" defer></script>
     <script src="specifiedCategoryMovies.js" defer></script>
-    <link href="generale_buttons.css" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
 
 </head>
 
-<body class="flex flex-col items-center">
+<body
+    class="border flex flex-col justify-center items-center min-h-screen lg:w-[1054px] md:w-[788px] sm:w-[456px] p-10">
 
-    <header class="bg-slate-600 bg-cover bg-center h-[70px] ">
-        <h1 class=" pl-2 font-light text-3xl italic text-white w-[700px] h-[70px] flex items-center justify-center">
-            Vidéos à la
-            demande</h1>
+    <header class="bg-cover bg-center bg-slate-600 w-full">
+        <div class="top-1/2 font-light text-3xl italic text-white text-center sm:text-center md:text-center h-[137px]">
+            <h1>Vidéos
+                à la demande</h1>
+        </div>
+
     </header>
 
-    <section class="pt-6 w-[700px]" id="best_movie_section">
+    <section class="pt-6 w-full" id="best_movie_section">
         <div class="pb-6">
-            <h2 class="text-4xl font-bold">Meilleur film</h2>
+            <h2 class="lg:text-4xl md:text-[40px] sm:text-3xl lg:text-left md:text-left font-bold sm:text-center">
+                Meilleur
+                film</h2>
         </div>
         <article id="bestMovie">
         </article>
     </section>
 
-    <section class="w-[700px] pt-20">
-        <h2 class="text-4xl font-bold pt-20 pb-6">Films les mieux notés</h2>
+    <section class="w-full pt-20">
+        <h2 class="text-4xl font-bold pb-6">Films les mieux notés</h2>
         <article id="sixBestMovies"
-            class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
+            class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
             <!-- <button id="viewMoreButton" class="mt-4 text-blue-500 font-bold">Voir plus</button> -->
         </article>
     </section>
 
-    <section class="w-[700px] pt-20">
+    <section class="w-full pt-20">
         <h2 class="text-4xl font-bold pt-15 pb-6">Catégorie "Drama"</h2>
         <article id="dramaMovies"
-            class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
+            class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
         </article>
     </section>
 
-    <section class="w-[700px] pt-20">
+    <section class="w-full pt-20">
         <h2 class="text-4xl font-bold pt-15 pb-6">Catégorie "Crime"</h2>
         <article id="crimeMovies"
-            class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
+            class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
         </article>
     </section>
 
-    <section class="w-[700px] pt-20 flex flex-row space-x-4">
+    <section class="w-full pt-20">
         <h2 class="text-4xl font-bold pb-10">Autre:</h2>
         <div class="relative inline-block">
             <button id="dropBtn"
@@ -62,7 +63,7 @@
             <!--  <div class="hidden absolute bg-gray-100 min-w-[160px] shadow-lg z-10 border-black border-2"></div> -->
             <div id="dropdownContent" class="hidden absolute bg-gray-100 min-w-[160px] shadow-lg z-10"></div>
             <div id="moviesContainerDropDown"
-                class="w-[700px] flex flex-wrap justify-between grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
+                class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
             </div>
         </div>
     </section>
