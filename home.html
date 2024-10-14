@@ -37,7 +37,6 @@
         <h2 class="text-4xl font-bold pb-6">Films les mieux notés</h2>
         <article id="sixBestMovies"
             class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
-            <!-- <button id="viewMoreButton" class="mt-4 text-blue-500 font-bold">Voir plus</button> -->
         </article>
     </section>
 
@@ -55,16 +54,20 @@
         </article>
     </section>
 
-    <section class="w-full pt-20">
-        <h2 class="text-4xl font-bold pb-10">Autre:</h2>
-        <div class="relative inline-block">
-            <button id="dropBtn"
-                class="font-oswald bg-white text-black px-4 py-2 text-lg border cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9]">Categories</button>
-            <!--  <div class="hidden absolute bg-gray-100 min-w-[160px] shadow-lg z-10 border-black border-2"></div> -->
-            <div id="dropdownContent" class="hidden absolute bg-gray-100 min-w-[160px] shadow-lg z-10"></div>
-            <div id="moviesContainerDropDown"
-                class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
+    <section class="w-full pt-20 relative">
+        <div class="flex flex-row gap-4">
+            <h2 class="text-4xl font-bold pb-10 pr-5">Autre:</h2>
+            <div class="relative inline-block">
+                <button id="dropBtn"
+                    class="font-oswald bg-white text-black px-4 py-2 text-2xl w-[250px] border border-black cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9]">Catégories</button>
+                <div id="dropdownContent"
+                    class=" border border-black hidden absolute bg-gray-100 min-w-[160px] w-[250px] shadow-lg z-10">
+                </div>
             </div>
+        </div>
+
+        <div id="moviesContainerDropDown"
+            class="flex flex-wrap justify-stretch grid grid-cols-1 sm:grid-cols-1 justify-items-center mx-auto md:grid-cols-2 mx-auto lg:grid-cols-3 gap-4 mx-auto">
         </div>
     </section>
 
