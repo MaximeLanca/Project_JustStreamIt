@@ -102,9 +102,9 @@ async function fetchBestMovie() {
     const jsonDataBestMovie = await dataBestMovie.json();
 
     movieElementForPictureData.innerHTML =
-        `<div class="lg:border-black border-4 pb-50 flex md:border-red-600 sm:border-purple-700 w-[450)px] lg:h-[360px] md:h-[330px] sm:h-[450px] sm:flex flex-col justify-center" >
-            <div class="overflow-hidden pl-4 pt-4 pr-5 lg:h-full md:h-[316px] sm=h-[100px] sm:mx-auto ">
-                <img class="object-cover sm:w-[300px]" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
+        `<div class="border-4 pb-50 lg:border-black md:border-red-600 sm:border-purple-700 lg:h-full md:h-[330px] sm:h-[450px] lg:flex md:flex sm:flex lg:flex-row md:flex-row sm:flex-col sm:justify-center">
+            <div class="p-4 lg:h-full md:h-[400px] sm:h-[100px] sm:mx-auto md:overflow-visible lg:overflow-visible sm:overflow-hidden ">
+                <img sm:w-[300px] sm:object-cover" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
             </div class="p-2">
             <div class=" m-2 basis-3/4 flex grid justify-items-stretch">
                 <div class="relative font-bold lg: top-4 text-4xl md:text-4xl sm:text-3xl">

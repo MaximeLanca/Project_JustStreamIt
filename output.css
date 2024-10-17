@@ -1102,6 +1102,10 @@ video {
   width: 25px;
 }
 
+.w-\[450px\] {
+  width: 450px;
+}
+
 .min-w-\[160px\] {
   min-width: 160px;
 }
@@ -1780,6 +1784,10 @@ video {
     height: 450px;
   }
 
+  .sm\:h-\[100px\] {
+    height: 100px;
+  }
+
   .sm\:w-40 {
     width: 10rem;
   }
@@ -1808,8 +1816,20 @@ video {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .sm\:flex-col {
+    flex-direction: column;
+  }
+
+  .sm\:justify-center {
+    justify-content: center;
+  }
+
   .sm\:justify-items-center {
     justify-items: center;
+  }
+
+  .sm\:overflow-hidden {
+    overflow: hidden;
   }
 
   .sm\:border-black {
@@ -1820,6 +1840,11 @@ video {
   .sm\:border-purple-700 {
     --tw-border-opacity: 1;
     border-color: rgb(126 34 206 / var(--tw-border-opacity));
+  }
+
+  .sm\:object-cover {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .sm\:p-2 {
@@ -1849,6 +1874,10 @@ video {
 @media (min-width: 768px) {
   .md\:block {
     display: block;
+  }
+
+  .md\:flex {
+    display: flex;
   }
 
   .md\:hidden {
@@ -1885,6 +1914,14 @@ video {
 
   .md\:h-\[330px\] {
     height: 330px;
+  }
+
+  .md\:h-full {
+    height: 100%;
+  }
+
+  .md\:h-\[400px\] {
+    height: 400px;
   }
 
   .md\:w-full {
@@ -1927,8 +1964,16 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
   .md\:justify-items-center {
     justify-items: center;
+  }
+
+  .md\:overflow-visible {
+    overflow: visible;
   }
 
   .md\:border-black {
@@ -1979,6 +2024,10 @@ video {
     display: block;
   }
 
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:hidden {
     display: none;
   }
@@ -1993,6 +2042,14 @@ video {
 
   .lg\:h-\[360px\] {
     height: 360px;
+  }
+
+  .lg\:h-\[500px\] {
+    height: 500px;
+  }
+
+  .lg\:h-\[550px\] {
+    height: 550px;
   }
 
   .lg\:w-3\/4 {
@@ -2019,8 +2076,16 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
   .lg\:justify-items-center {
     justify-items: center;
+  }
+
+  .lg\:overflow-visible {
+    overflow: visible;
   }
 
   .lg\:border-black {
