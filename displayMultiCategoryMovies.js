@@ -32,23 +32,28 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         parentDivContainer.className = 'relative';
 
         counter += 1;
-        if (counter > 4) {
+        if (counter === 3 || counter === 4) {
+            movieElement.className = 'relative pb-8 w-[300px] lg:block md:block sm:hidden';
+            movieElement.id = `hidden${movieCategory}`;
+            hiddenMovies.push(movieElement);
+        }
+        else if (counter === 5 || counter === 6) {
             movieElement.className = 'relative pb-8 w-[300px] lg:block md:hidden sm:hidden';
             movieElement.id = `hidden${movieCategory}`;
             hiddenMovies.push(movieElement);
         } else {
             movieElement.className = 'relative pb-8 w-[300px]';
         };
-        movieElement.innerHTML = `
-                <div>
-                    <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="300"></a>
-                    <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[150px] "></div>
-                </div>  
-                <h3 class="absolute text-lg text-white top-10 left-5 w-[150px] z-10">${movieData.title}</h3>
+        movieElement.innerHTML =
+            `<div">
+                <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="300"></a>
+                <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[150px] "></div>
+            </div>  
+                <h3 class="absolute text-lg text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>
                 `;
 
         const btnElement = document.createElement('button');
-        btnElement.className = "absolute top-20 left-20 bg-black text-white font-thin text-sm/[3px] p-2 rounded-full w-[70px] cursor-pointer openModalBtn";
+        btnElement.className = "absolute top-10 right-0 bg-black text-white font-thin text-sm/[2px] p-3 rounded-full w-[100px] h-[90px] cursor-pointer openModalBtn";
         btnElement.innerHTML = "Détails";
         btnElement.addEventListener("click", function () {
             modal.style.display = "block";
@@ -67,6 +72,8 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
             hiddenMovies.forEach(movie => {
                 movie.classList.remove("md:hidden");
                 movie.classList.add("md:block");
+                movie.classList.remove("sm:hidden");
+                movie.classList.add("sm:block");
             });
             btnViewMore.style.display = "none";
             btnViewLess.style.display = "block";
@@ -80,6 +87,8 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
             hiddenMovies.forEach(movie => {
                 movie.classList.remove("md:block");
                 movie.classList.add("md:hidden");
+                movie.classList.remove("sm:block");
+                movie.classList.add("sm:hidden");
             });
             btnViewLess.style.display = "none";
             btnViewMore.style.display = "block";
@@ -103,8 +112,8 @@ async function fetchBestMovie() {
 
     movieElementForPictureData.innerHTML =
         `<div class="border-4 pb-50 lg:border-black md:border-red-600 sm:border-purple-700 lg:h-full md:h-[330px] sm:h-[450px] lg:flex md:flex sm:flex lg:flex-row md:flex-row sm:flex-col sm:justify-center">
-            <div class="p-4 lg:h-full md:h-[400px] sm:h-[100px] sm:mx-auto md:overflow-visible lg:overflow-visible sm:overflow-hidden ">
-                <img sm:w-[300px] sm:object-cover" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
+            <div class="p-4 lg:h-full md:h-[400px] sm:h-[150px] sm:w-[400px] sm:mx-auto md:overflow-visible lg:overflow-visible sm:overflow-hidden ">
+                <img class="w-full h-auto lg:max-w-[400px] md:max-w-[400px] sm:max-w-[300px] max-h-[334px] object-cover"  src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
             </div class="p-2">
             <div class=" m-2 basis-3/4 flex grid justify-items-stretch">
                 <div class="relative font-bold lg: top-4 text-4xl md:text-4xl sm:text-3xl">
@@ -113,7 +122,7 @@ async function fetchBestMovie() {
                 <div class="italic font-light lg:text-3xl pt-6 md:text-2xl pt-1 sm:text-xl">
                     <p>${jsonDataBestMovie.description}</p>
                 </div>
-                <div class="justify-self-end pt-6 pr-10">
+                <div class="pt-6 lg:pr-10 md:pr-10 sm:p-1 lg:justify-self-end md:justify-self-end sm:mx-auto ">
                         <button class=" bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer order-1 w-[120px] sm:p-2 w-[100px] " id="openModalButton">Détail</button>
                     </div>
             </div>
