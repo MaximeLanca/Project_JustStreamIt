@@ -42,9 +42,9 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         movieElement.innerHTML = `
                 <div>
                     <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="300"></a>
-                    <div class="w-[182px] absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[100px] "></div>
+                    <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[150px] "></div>
                 </div>  
-                <h3 class="absolute text-xm text-white top-10 left-5 w-[150px] z-10">${movieData.title}</h3>
+                <h3 class="absolute text-lg text-white top-10 left-5 w-[150px] z-10">${movieData.title}</h3>
                 `;
 
         const btnElement = document.createElement('button');
@@ -68,8 +68,8 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
                 movie.classList.remove("md:hidden");
                 movie.classList.add("md:block");
             });
-            btnViewMore.style.display = "none"; // Cache le bouton "Voir plus"
-            btnViewLess.style.display = "block"; // Affiche le bouton "Voir moins"
+            btnViewMore.style.display = "none";
+            btnViewLess.style.display = "block";
         });
 
         const btnViewLess = document.createElement('button');
@@ -78,11 +78,11 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         btnViewLess.style.display = "none";
         btnViewLess.addEventListener("click", function () {
             hiddenMovies.forEach(movie => {
-                movie.classList.remove("md:block"); // Cache les films sur les tailles moyennes
+                movie.classList.remove("md:block");
                 movie.classList.add("md:hidden");
             });
-            btnViewLess.style.display = "none"; // Cache le bouton "Voir moins"
-            btnViewMore.style.display = "block"; // Réaffiche le bouton "Voir plus"
+            btnViewLess.style.display = "none";
+            btnViewMore.style.display = "block";
         });
 
         container.appendChild(btnViewMore);
@@ -102,9 +102,9 @@ async function fetchBestMovie() {
     const jsonDataBestMovie = await dataBestMovie.json();
 
     movieElementForPictureData.innerHTML =
-        `<div class="lg:border-black border-4 pb-50 flex md:border-red-600 sm:border-purple-700 w-[329)px] lg:h-[360px] md:h-[330px] sm:h-[463px]" >
-            <div class="pl-4 pt-4 pr-5 lg:h-full md:h-[316px] sm=h-[100px]">
-                <img src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
+        `<div class="lg:border-black border-4 pb-50 flex md:border-red-600 sm:border-purple-700 w-[450)px] lg:h-[360px] md:h-[330px] sm:h-[450px] sm:flex flex-col justify-center" >
+            <div class="overflow-hidden pl-4 pt-4 pr-5 lg:h-full md:h-[316px] sm=h-[100px] sm:mx-auto ">
+                <img class="object-cover sm:w-[300px]" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
             </div class="p-2">
             <div class=" m-2 basis-3/4 flex grid justify-items-stretch">
                 <div class="relative font-bold lg: top-4 text-4xl md:text-4xl sm:text-3xl">

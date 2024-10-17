@@ -23,7 +23,7 @@ async function fetchGenresMovies() {
     let dropDownContent = document.getElementById("dropdownContent");
     for (let category of moviesCategoriesList) {
         dropDownContent.innerHTML += `
-        <div id="${category.toLowerCase()}" class="text-2xl border border-black"> 
+        <div id="${category.toLowerCase()}" class="z-50 text-2xl border border-black"> 
             <a class="w-[150px]">
                 <div class="pl-2 relative">
                     <p>${category}</p>
@@ -47,17 +47,19 @@ function attachDropdownEvents() {
             moviesContainer.innerHTML = "";
             fetchMovies("moviesContainerDropDown", `sort_by=-imdb_score&genre=${category}`);
 
-            // Vérifie si une catégorie est déjà sélectionnée
+            const titleBtn = document.getElementById("dropBtn");
+            titleBtn.innerHTML = "";
+            titleBtn.innerHTML = `${category}`;
+
             if (selectedCategory) {
-                // Supprime les styles de l'icône de la catégorie précédemment sélectionnée
                 selectedCategory.querySelector('.icon').classList.remove('bg-green-500', 'bg-cover', 'border', 'border-green-400', 'rounded-md', 'text-white', 'flex', 'items-center', 'justify-center');
-                selectedCategory.querySelector('.icon').innerHTML = ''; // Vide l'icône
+                selectedCategory.querySelector('.icon').innerHTML = '';
             }
 
-            // Sélectionne la nouvelle catégorie
-            selectedCategory = button; // Met à jour la catégorie sélectionnée
+            selectedCategory = button;
             button.querySelector('.icon').classList.add('bg-green-500', 'bg-cover', 'border', 'border-green-400', 'rounded-md', 'text-white', 'flex', 'items-center', 'justify-center');
-            button.querySelector('.icon').innerHTML = '&#10003;';  // Ajoute la coche verte
+            button.querySelector('.icon').innerHTML = '&#10003;';
+
         });
     };
 }

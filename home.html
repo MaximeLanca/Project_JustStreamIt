@@ -9,7 +9,6 @@
     <script src="displayMultiCategoryMoviesWithDropDown.js" defer></script>
     <script src="specifiedCategoryMovies.js" defer></script>
     <link href="./output.css" rel="stylesheet">
-
 </head>
 
 <body
@@ -29,7 +28,7 @@
                 Meilleur
                 film</h2>
         </div>
-        <article id="bestMovie">
+        <article class="relative" id="bestMovie">
         </article>
     </section>
 
@@ -59,7 +58,9 @@
             <h2 class="text-4xl font-bold pb-10 pr-5">Autre:</h2>
             <div class="relative inline-block">
                 <button id="dropBtn"
-                    class="font-oswald bg-white text-black px-4 py-2 text-2xl w-[250px] border border-black cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9]">Catégories</button>
+                    class="font-oswald bg-white text-black px-4 py-2 text-2xl w-[250px] border border-black cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9]">
+                    Catégories
+                </button>
                 <div id="dropdownContent"
                     class=" border border-black hidden absolute bg-gray-100 min-w-[160px] w-[250px] shadow-lg z-10">
                 </div>
