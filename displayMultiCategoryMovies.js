@@ -46,7 +46,7 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         };
         movieElement.innerHTML =
             `<div">
-                <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="300"></a>
+                <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="250"></a>
                 <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[150px] "></div>
             </div>  
                 <h3 class="absolute text-lg text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>
@@ -115,14 +115,14 @@ async function fetchBestMovie() {
             <div class="p-4 lg:h-full md:h-[400px] sm:h-[150px] sm:w-[400px] sm:mx-auto md:overflow-visible lg:overflow-visible sm:overflow-hidden ">
                 <img class="w-full h-auto lg:max-w-[400px] md:max-w-[400px] sm:max-w-[300px] max-h-[334px] object-cover"  src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
             </div class="p-2">
-            <div class=" m-2 basis-3/4 flex grid justify-items-stretch">
+            <div class=" m-2 basis-3/4 grid justify-items-stretch">
                 <div class="relative font-bold lg: top-4 text-4xl md:text-4xl sm:text-3xl">
                     ${jsonDataBestMovie.title}
                 </div>
-                <div class="italic font-light lg:text-3xl pt-6 md:text-2xl pt-1 sm:text-xl">
+                <div class="font-serif font-light lg:text-3xl pt-6 md:text-2xl pt-1 sm:text-xl">
                     <p>${jsonDataBestMovie.description}</p>
                 </div>
-                <div class="pt-6 lg:pr-10 md:pr-10 sm:p-1 lg:justify-self-end md:justify-self-end sm:mx-auto ">
+                <div class="lg:pr-10 md:pr-10 sm:p-1 mx-auto lg:justify-self-end md:justify-self-end  ">
                         <button class=" bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer order-1 w-[120px] sm:p-2 w-[100px] " id="openModalButton">Détail</button>
                     </div>
             </div>

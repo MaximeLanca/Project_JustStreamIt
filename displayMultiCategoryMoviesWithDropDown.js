@@ -19,7 +19,6 @@ async function fetchGenresMovies() {
         page++;
     };
 
-
     let dropDownContent = document.getElementById("dropdownContent");
     for (let category of moviesCategoriesList) {
         dropDownContent.innerHTML += `

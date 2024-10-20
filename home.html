@@ -11,12 +11,11 @@
     <link href="./output.css" rel="stylesheet">
 </head>
 
-<body
-    class="border flex flex-col justify-center items-center min-h-screen lg:w-[1054px] md:w-[788px] sm:w-[456px] p-10">
+<body class="border flex flex-col lg:w-[1054px] md:w-[788px] sm:w-[456px] min-h-screen mx-auto p-10 overflow-x-auto">
 
     <header class="bg-cover bg-center bg-slate-600 w-full">
-        <div class="top-1/2 font-light text-3xl italic text-white text-center  h-[137px]">
-            <h1 class="lg:block md:block sm:hidden">Vidéos
+        <div class="flex items-center justify-center top-1/2 font-light text-3xl italic text-white h-[100px]">
+            <h1 class="text-center lg:block md:block sm:hidden">Vidéos
                 à la demande</h1>
         </div>
 
@@ -24,7 +23,7 @@
 
     <section class="pt-6 w-full" id="best_movie_section">
         <div class="pb-6">
-            <h2 class="lg:text-4xl md:text-[40px] sm:text-3xl lg:text-left md:text-left font-bold sm:text-center">
+            <h2 class="font-bold lg:text-4xl md:text-[40px] sm:text-3xl lg:text-left md:text-left sm:text-center">
                 Meilleur
                 film</h2>
         </div>
@@ -75,7 +74,7 @@
     <div id="modal-container">
         <div id="myModal" class="hidden fixed z-10 inset-0 w-full h-full overflow-auto bg-black bg-opacity-40 ">
             <div id="modalContent"
-                class=" z-50 w-1/2 max-w-md mx-auto h-auto border border-solid border-gray-400 p-5 bg-white m-px flex justify-center items-center">
+                class=" z-50 w-1/2 max-w-lg  mx-auto h-auto border border-solid border-gray-400 p-5 bg-white m-px flex justify-center items-center">
             </div>
         </div>
     </div>
