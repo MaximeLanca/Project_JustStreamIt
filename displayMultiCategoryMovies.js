@@ -33,23 +33,23 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
 
         counter += 1;
         if (counter === 3 || counter === 4) {
-            movieElement.className = 'relative pb-8 w-[300px] lg:block md:block sm:hidden';
+            movieElement.className = 'relative pb-8 w-[310px] lg:block md:block sm:hidden';
             movieElement.id = `hidden${movieCategory}`;
             hiddenMovies.push(movieElement);
         }
         else if (counter === 5 || counter === 6) {
-            movieElement.className = 'relative pb-8 w-[300px] lg:block md:hidden sm:hidden';
+            movieElement.className = 'relative pb-8 w-[310px] lg:block md:hidden sm:hidden';
             movieElement.id = `hidden${movieCategory}`;
             hiddenMovies.push(movieElement);
         } else {
-            movieElement.className = 'relative pb-8 w-[300px]';
+            movieElement.className = 'relative pb-8 w-[310px]';
         };
         movieElement.innerHTML =
-            `<div">
-                <a><img src=${movieData.image_url} alt=${movieData.title} height="100" width="250"></a>
-                <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-50 h-[150px] "></div>
+            `<div>
+                <a><img class="h-[300px] w-[310px]"src=${movieData.image_url} alt=${movieData.title} height="100" width="250"></a>
+                <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-40 h-[150px]"></div>
             </div>  
-                <h3 class="absolute text-lg text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>
+                <h3 class="absolute text-2xl text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>
                 `;
 
         const btnElement = document.createElement('button');
@@ -111,22 +111,23 @@ async function fetchBestMovie() {
     const jsonDataBestMovie = await dataBestMovie.json();
 
     movieElementForPictureData.innerHTML =
-        `<div class="border-4 pb-50 lg:border-black md:border-red-600 sm:border-purple-700 lg:h-full md:h-[330px] sm:h-[450px] lg:flex md:flex sm:flex lg:flex-row md:flex-row sm:flex-col sm:justify-center">
-            <div class="p-4 lg:h-full md:h-[400px] sm:h-[150px] sm:w-[400px] sm:mx-auto md:overflow-visible lg:overflow-visible sm:overflow-hidden ">
-                <img class="w-full h-auto lg:max-w-[400px] md:max-w-[400px] sm:max-w-[300px] max-h-[334px] object-cover"  src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
-            </div class="p-2">
-            <div class=" m-2 basis-3/4 grid justify-items-stretch">
-                <div class="relative font-bold lg: top-4 text-4xl md:text-4xl sm:text-3xl">
+        `<div class="flex border-4 pb-50 border-black sm:h-[450px] md:h-[350px] lg:h-[400px] sm:flex-col md:flex-row sm:justify-center">
+            <div class="p-4 overflow-hidden sm:mx-auto md:overflow-visible">
+                <img class="w-[250px] h-[300px]" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
+            </div>
+            <div class="m-2 basis-3/4 grid justify-items-stretch">
+                <div class="text-xl relative font-bold lg:top-1 lg:text-3xl md:text-2xl">
                     ${jsonDataBestMovie.title}
                 </div>
-                <div class="font-serif font-light lg:text-3xl pt-6 md:text-2xl pt-1 sm:text-xl">
+                <div class="font-serif font-light lg:text-2xl pt-6 md:text-2xl pt-1 sm:text-xl">
                     <p>${jsonDataBestMovie.description}</p>
                 </div>
-                <div class="lg:pr-10 md:pr-10 sm:p-1 mx-auto lg:justify-self-end md:justify-self-end  ">
-                        <button class=" bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer order-1 w-[120px] sm:p-2 w-[100px] " id="openModalButton">Détail</button>
-                    </div>
+                <div class="p-1 lg:pr-10 md:pr-10 lg:justify-self-end md:justify-self-end justify-self-end">
+                    <button class="bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer md:w-[150px] w-[100px]" id="openModalButton">Détail</button>
+                </div>
             </div>
         </div>`;
+
 
     let displayBestMovie = document.getElementById("bestMovie");
     displayBestMovie.appendChild(movieElementForPictureData);
