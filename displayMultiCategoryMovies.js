@@ -23,6 +23,7 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
     const container = document.getElementById(movieCategory);
     let counter = 0;
     let hiddenMovies = [];
+
     for (const jsonDataBestMovie of adjustedItemsList) {
         const movieElement = document.createElement('div');
         const apiUrlDataCategoryMovie = jsonDataBestMovie.url;
@@ -33,27 +34,29 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
 
         counter += 1;
         if (counter === 3 || counter === 4) {
-            movieElement.className = 'relative pb-8 w-[310px] lg:block md:block sm:hidden';
-            movieElement.id = `hidden${movieCategory}`;
+            movieElement.className = 'object-cover relative pb-2 w-[290px] lg:block md:block sm:hidden';
+            movieElement.id = `hiddenMiddlePositionMovie${counter}`;
             hiddenMovies.push(movieElement);
         }
         else if (counter === 5 || counter === 6) {
-            movieElement.className = 'relative pb-8 w-[310px] lg:block md:hidden sm:hidden';
-            movieElement.id = `hidden${movieCategory}`;
+            movieElement.className = 'object-cover relative pb-2 w-[290px] lg:block md:hidden sm:hidden';
+            movieElement.id = `hiddenEndPositionMovie${counter}`;
             hiddenMovies.push(movieElement);
         } else {
-            movieElement.className = 'relative pb-8 w-[310px]';
+            movieElement.className = 'relative pb-2 w-[290px]';
         };
         movieElement.innerHTML =
             `<div>
-                <a><img class="h-[300px] w-[310px]"src=${movieData.image_url} alt=${movieData.title} height="100" width="250"></a>
-                <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex bg-black bg-opacity-40 h-[150px]"></div>
+                <a><img class="object-cover h-[300px] w-[290px]"src=${movieData.image_url} alt=${movieData.title} height="100" width="250"></a>
+                <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex justify-end items-end pr-5 bg-black bg-opacity-40 h-[150px]">
+                    <button class="z-50 text-white">test</button>
+                </div>
             </div>  
                 <h3 class="absolute text-2xl text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>
                 `;
 
         const btnElement = document.createElement('button');
-        btnElement.className = "absolute top-10 right-0 bg-black text-white font-thin text-sm/[2px] p-3 rounded-full w-[100px] h-[90px] cursor-pointer openModalBtn";
+        btnElement.className = "font-thin top-50 right-0 bg-slate-800 text-white text-sm/[2px] p-3 rounded-2xl w-[90px] h-[30px] cursor-pointer openModalBtn";
         btnElement.innerHTML = "Détails";
         btnElement.addEventListener("click", function () {
             modal.style.display = "block";
@@ -69,14 +72,25 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         btnViewMore.className = "bg-red-600 rounded-2xl text-white border-solid px-10 col-span-full mx-auto sm:block md:block lg:hidden";
         btnViewMore.innerHTML = "Voir plus";
         btnViewMore.addEventListener("click", function () {
-            hiddenMovies.forEach(movie => {
-                movie.classList.remove("md:hidden");
-                movie.classList.add("md:block");
-                movie.classList.remove("sm:hidden");
-                movie.classList.add("sm:block");
-            });
-            btnViewMore.style.display = "none";
-            btnViewLess.style.display = "block";
+
+            if (window.matchMedia("(min-width:768px)").matches) {
+                hiddenMovies.forEach(movie => {
+                    movie.classList.remove("md:hidden");
+                    movie.classList.add("md:block");
+                });
+                btnViewMore.style.display = "none";
+                btnViewLess.style.display = "block";
+            }
+
+            else if (window.matchMedia("(min-width:0px)").matches) {
+                hiddenMovies.forEach(movie => {
+                    movie.classList.remove("sm:hidden");
+                    movie.classList.add("sm:block");
+                });
+                btnViewMore.style.display = "none";
+                btnViewLess.style.display = "block";
+            }
+
         });
 
         const btnViewLess = document.createElement('button');
@@ -84,14 +98,26 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         btnViewLess.innerHTML = "Voir moins";
         btnViewLess.style.display = "none";
         btnViewLess.addEventListener("click", function () {
-            hiddenMovies.forEach(movie => {
-                movie.classList.remove("md:block");
-                movie.classList.add("md:hidden");
-                movie.classList.remove("sm:block");
-                movie.classList.add("sm:hidden");
-            });
-            btnViewLess.style.display = "none";
-            btnViewMore.style.display = "block";
+
+            if (window.matchMedia("(min-width:768px)").matches) {
+                hiddenMovies.slice(2).forEach(movie => {
+                    movie.classList.remove("md:block");
+                    movie.classList.add("md:hidden");
+                });
+                btnViewLess.style.display = "none";
+                btnViewMore.style.display = "block";
+            }
+
+            else if (window.matchMedia("(min-width:0px)").matches) {
+                hiddenMovies.forEach(movie => {
+                    movie.classList.remove("sm:block");
+                    movie.classList.add("sm:hidden");
+                });
+                btnViewLess.style.display = "none";
+                btnViewMore.style.display = "block";
+            }
+
+
         });
 
         container.appendChild(btnViewMore);
@@ -111,19 +137,19 @@ async function fetchBestMovie() {
     const jsonDataBestMovie = await dataBestMovie.json();
 
     movieElementForPictureData.innerHTML =
-        `<div class="flex border-4 pb-50 border-black sm:h-[450px] md:h-[350px] lg:h-[400px] sm:flex-col md:flex-row sm:justify-center">
+        `<div class="flex border-4 pb-50 border-black sm:h-[550px] md:h-[350px] lg:h-[400px] sm:flex-col md:flex-row sm:justify-center">
             <div class="p-4 overflow-hidden sm:mx-auto md:overflow-visible">
-                <img class="w-[250px] h-[300px]" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
+                <img class="lg:h-[350px] md:h-[300px] md:w-[250px] sm:h-[400px] sm:w-[350px]" src=${firstMovie.image_url} alt=${firstMovie.title} width="227" height="334">
             </div>
-            <div class="m-2 basis-3/4 grid justify-items-stretch">
-                <div class="text-xl relative font-bold lg:top-1 lg:text-3xl md:text-2xl">
+            <div class="m-2 basis-3/4 grid lg:h-[350px]">
+                <div class="pl-2 text-3xl relative font-bold lg:top-1">
                     ${jsonDataBestMovie.title}
                 </div>
-                <div class="font-serif font-light lg:text-2xl pt-6 md:text-2xl pt-1 sm:text-xl">
+                <div class="pl-2 place-self-start font-light lg:text-2xl md:text-2xl pt-1 sm:text-xl">
                     <p>${jsonDataBestMovie.description}</p>
                 </div>
-                <div class="p-1 lg:pr-10 md:pr-10 lg:justify-self-end md:justify-self-end justify-self-end">
-                    <button class="bg-red-500 text-white p-4 text-center italic rounded-[25px] cursor-pointer md:w-[150px] w-[100px]" id="openModalButton">Détail</button>
+                <div class="p-4 pr-10 md:place-self-end sm:place-self-center">
+                    <button class="bg-red-500 text-white p-2 text-center italic  cursor-pointer lg: rounded-[15px] lg:w-[130px] sm:w-[100px] sm:rounded-[30px]" id="openModalButton">Détails</button>
                 </div>
             </div>
         </div>`;
