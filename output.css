@@ -638,6 +638,10 @@ video {
   z-index: 50;
 }
 
+.z-30 {
+  z-index: 30;
+}
+
 .order-1 {
   order: 1;
 }
@@ -912,6 +916,18 @@ video {
 
 .w-\[320px\] {
   width: 320px;
+}
+
+.w-\[80px\] {
+  width: 80px;
+}
+
+.w-\[130px\] {
+  width: 130px;
+}
+
+.w-\[170px\] {
+  width: 170px;
 }
 
 .min-w-\[160px\] {
@@ -1363,6 +1379,10 @@ video {
     display: block;
   }
 
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:hidden {
     display: none;
   }
@@ -1399,6 +1419,22 @@ video {
     height: 50px;
   }
 
+  .sm\:h-\[150px\] {
+    height: 150px;
+  }
+
+  .sm\:h-\[140px\] {
+    height: 140px;
+  }
+
+  .sm\:h-\[170px\] {
+    height: 170px;
+  }
+
+  .sm\:h-\[160px\] {
+    height: 160px;
+  }
+
   .sm\:w-\[456px\] {
     width: 456px;
   }
@@ -1425,6 +1461,18 @@ video {
 
   .sm\:w-\[350px\] {
     width: 350px;
+  }
+
+  .sm\:w-\[180px\] {
+    width: 180px;
+  }
+
+  .sm\:w-\[170px\] {
+    width: 170px;
+  }
+
+  .sm\:w-\[160px\] {
+    width: 160px;
   }
 
   .sm\:grid-cols-1 {
@@ -1496,12 +1544,20 @@ video {
     order: 3;
   }
 
+  .md\:col-start-1 {
+    grid-column-start: 1;
+  }
+
   .md\:block {
     display: block;
   }
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:grid {
+    display: grid;
   }
 
   .md\:hidden {
@@ -1516,6 +1572,22 @@ video {
     height: 300px;
   }
 
+  .md\:h-\[130px\] {
+    height: 130px;
+  }
+
+  .md\:h-\[120px\] {
+    height: 120px;
+  }
+
+  .md\:h-\[110px\] {
+    height: 110px;
+  }
+
+  .md\:h-\[115px\] {
+    height: 115px;
+  }
+
   .md\:w-\[150px\] {
     width: 150px;
   }
@@ -1526,6 +1598,10 @@ video {
 
   .md\:w-\[250px\] {
     width: 250px;
+  }
+
+  .md\:w-\[170px\] {
+    width: 170px;
   }
 
   .md\:grid-cols-2 {
@@ -1664,6 +1740,14 @@ video {
     height: 350px;
   }
 
+  .lg\:h-\[100px\] {
+    height: 100px;
+  }
+
+  .lg\:h-\[80px\] {
+    height: 80px;
+  }
+
   .lg\:w-\[1000px\] {
     width: 1000px;
   }
@@ -1714,6 +1798,10 @@ video {
 
   .lg\:justify-items-center {
     justify-items: center;
+  }
+
+  .lg\:place-self-center {
+    place-self: center;
   }
 
   .lg\:place-self-stretch {

@@ -45,27 +45,27 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         } else {
             movieElement.className = 'relative pb-2 w-[290px]';
         };
+
         movieElement.innerHTML =
             `<div>
                 <a><img class="object-cover h-[300px] w-[290px]"src=${movieData.image_url} alt=${movieData.title} height="100" width="250"></a>
                 <div class="w-full absolute top-10 bottom-40 left-0 right-0 flex justify-end items-end pr-5 bg-black bg-opacity-40 h-[150px]">
-                    <button class="z-50 text-white">test</button>
+                    <button class="detailsButton z-30 font-thin top-50 right-0 bg-slate-800 text-white text-sm/[2px] p-3 rounded-2xl w-[90px] h-[30px] cursor-pointer">Détails</button>
                 </div>
             </div>  
-                <h3 class="absolute text-2xl text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>
-                `;
+            <h3 class="absolute text-2xl text-white top-10 left-5 w-[250px] h-[15px]">${movieData.title}</h3>`;
 
-        const btnElement = document.createElement('button');
-        btnElement.className = "font-thin top-50 right-0 bg-slate-800 text-white text-sm/[2px] p-3 rounded-2xl w-[90px] h-[30px] cursor-pointer openModalBtn";
-        btnElement.innerHTML = "Détails";
-        btnElement.addEventListener("click", function () {
-            modal.style.display = "block";
-            getMovieInfoForModal(movieData);
-        });
-
-        movieElement.appendChild(btnElement);
         container.appendChild(movieElement);
+
+        const btnElements = document.querySelectorAll('.detailsButton');
+        btnElements.forEach((btn) => {
+            btn.addEventListener("click", function () {
+                modal.style.display = "block";
+                getMovieInfoForModal(movieData);// Assure-toi que `movieDataList` est la liste de tes objets `movieData`
+            });
+        });
     };
+
 
     if (hiddenMovies.length > 0) {
         const btnViewMore = document.createElement('button');
