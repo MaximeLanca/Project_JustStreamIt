@@ -4,8 +4,8 @@ function getMovieInfoForModal(dataMovie) {
     movieElementForModal.innerHTML =
         `
     <div class="grid justify-items-stretch gap-2 relative lg:w-[600px] lg:h-[800px] sm:w-[400px] lg:h-[1500px] lg:grid-cols-2 sm:grid-cols-1 ">
-        <div class="absolute right-0 items-center justify-center w-10 h-10 lg:hidden md:block sm:block">
-            <span id="closeModalCrossButton" class="!text-red-600 h-[20px]">&#x2716;</span>
+        <div class="absolute right-0 items-center justify-center w-5 h-5 lg:hidden md:block sm:block">
+            <img id="closeModalCrossButton" src="cross.png" alt="red cross" width="50" height="50">
         </div>
         <div class:"order-1">
             <h2 class="font-bold top-0 text-2xl">${dataMovie.title}</h2>
