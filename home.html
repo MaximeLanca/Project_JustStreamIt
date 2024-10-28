@@ -17,7 +17,7 @@
     <header class=" bg-center bg-silver w-full">
         <div
             class="top-1/2 font-light text-3xl italic text-white md:grid grid-cols-6 place-items-center sm:flex items-center justify-center lg:h-[100px] md:h-[115 px] sm:h-[140px]">
-            <img class="place-self-center lg:h-[80px] lg:w-[100px] md:h-[120px] md:w-[150px] sm:h-[140px] sm:w-[150px]"
+            <img class="place-self-center object-contain lg:h-[80px] lg:w-[100px] md:h-[120px] md:w-[170px] sm:h-[140px] sm:w-[150px]"
                 src="image.png" alt="Just Stream It" width="100" height="100">
             <h1 class="place-self-center text-center col-start-2 col-span-4 lg:block md:block sm:hidden">Vidéos à la
                 demande</h1>
@@ -68,10 +68,11 @@
             <h2 class="pb-6 font-bold lg:text-4xl md:text-3xl sm:text-3xl lg:text-left md:text-left sm:text-center">
                 Autre:
             </h2>
-            <div class="relative inline-block">
-                <button id="dropBtn"
-                    class="font-oswald bg-white text-black px-4 py-2 text-2xl w-[250px] border border-black cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9]">
+            <div class="relative inline-block lg:w-[400px] sm:w-[200px]">
+                <button id="dropBtn" class="font-oswald bg-white text-black px-4 py-2 text-2xl w-[250px] border border-black
+                    cursor-pointer hover:bg-[#2980b9] focus:bg-[#2980b9] flex flex-row justify-between items-center">
                     Catégories
+                    <img class="w-[25px] h-[25px]" src="arrow.png" alt="black arrow" width="100" height="100">
                 </button>
                 <div id="dropdownContent"
                     class=" border border-black hidden absolute bg-gray-100 min-w-[160px] w-[250px] shadow-lg z-10">
