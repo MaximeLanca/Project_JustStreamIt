@@ -50,7 +50,8 @@ function attachDropdownEvents() {
             titleBtn.innerHTML = "";
             titleBtn.innerHTML =
                 `${category}
-                <img class="w-[25px] h-[25px]" src="arrow.png" alt="black arrow" width="100" height="100">`;
+                <img class="w-[25px] h-[25px] lg:block md:hidden sm:block" src="arrow.png" alt="black arrow" width="100"
+                        height="100">`;
 
             if (selectedCategory) {
                 selectedCategory.querySelector('.icon').classList.remove('bg-green-500', 'bg-cover', 'border', 'border-green-400', 'rounded-md', 'text-white', 'flex', 'items-center', 'justify-center');
