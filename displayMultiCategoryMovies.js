@@ -24,9 +24,9 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
     let counter = 0;
     let hiddenMovies = [];
 
-    for (const jsonDataBestMovie of adjustedItemsList) {
+    for (const jsonDataMovie of adjustedItemsList) {
         const movieElement = document.createElement('div');
-        const apiUrlDataCategoryMovie = jsonDataBestMovie.url;
+        const apiUrlDataCategoryMovie = jsonDataMovie.url;
         const moviesSorted = await fetch(apiUrlDataCategoryMovie);
         const movieData = await moviesSorted.json();
         const parentDivContainer = document.createElement('div');
@@ -66,8 +66,8 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
         });
     };
 
-
     if (hiddenMovies.length > 0) {
+
         const btnViewMore = document.createElement('button');
         btnViewMore.className = "bg-red-600 rounded-2xl text-white border-solid px-10 col-span-full mx-auto sm:block md:block lg:hidden";
         btnViewMore.innerHTML = "Voir plus";
@@ -116,10 +116,7 @@ async function injectMoviesIntoPage(adjustedItemsList, movieCategory) {
                 btnViewLess.style.display = "none";
                 btnViewMore.style.display = "block";
             }
-
-
         });
-
         container.appendChild(btnViewMore);
         container.appendChild(btnViewLess);
     }
@@ -153,7 +150,6 @@ async function fetchBestMovie() {
                 </div>
             </div>
         </div>`;
-
 
     let displayBestMovie = document.getElementById("bestMovie");
     displayBestMovie.appendChild(movieElementForPictureData);
