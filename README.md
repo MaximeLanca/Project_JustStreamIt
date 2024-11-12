@@ -1,6 +1,6 @@
 # Just Stream It
 
-![Aperçu du projet](./images/interface.png)
+![Aperçu du projet](./interface.png)
 
 ## About the project
 
